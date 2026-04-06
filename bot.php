@@ -30,7 +30,7 @@ switch ($message) {
         $response = "Heisenberg";
         break;
     default:
-        $response = "Lo siento, no entiendo ese comando. Escribe /help para ver los comandos disponibles.";
+        $response = "Lo siento, no entiendo ese comando.";
 }
  
 // Envía la respuesta de vuelta al usuario mediante el API de Telegram
