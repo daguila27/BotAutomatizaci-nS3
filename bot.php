@@ -10,10 +10,21 @@ $update = json_decode($input, true);
 $chatId = $update['message']['chat']['id'];
 $message = $update['message']['text'];
 
+switch ($message) {
+    case '/start':
+        $response = "¡Hola! Soy tu bot de Telegram. ¿En qué puedo ayudarte?";
+        break;
+    case '/help':
+        $response = "Puedes usar los siguientes comandos:\n/start - Iniciar el bot\n/help - Mostrar esta ayuda";
+        break;
+    default:
+        $response = "Lo siento, no entiendo ese comando. Escribe /help para ver los comandos disponibles.";
+}
+
 $url = "$website/sendMessage";
 $data = [ 
     "chat_id" => $chatId,
-    "text" => "Recibí: " . $message
+    "text" => $response
 ];
 file_get_contents($url . "?" . http_build_query($data));
 
